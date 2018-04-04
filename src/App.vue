@@ -1,28 +1,31 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <Formulario :result="user" name="true" tel="true"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import Formulario from "./components/Formulario";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    Formulario
+  },
+  data() {
+    return {
+      user: {}
+    }
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: grid;
+  grid-template-columns: 1fr minmax(300px, 600px) 1fr;
+}
+#app>*{
+  grid-column: 2/3;
 }
 </style>
