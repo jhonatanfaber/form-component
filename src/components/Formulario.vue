@@ -19,12 +19,12 @@ export default {
     },
     data() {
         return {
-            myResult: {name: "ruben",
-            tel: "666999555",
-            email: "ruben@gmail.com",
-            username: "ruben123",
-            pass: "pass1234",
-            verifyPass: "pass1234"},
+            myResult: {name: "John Doe",
+            tel: "555123546",
+            email: "john.doe@domain.com",
+            username: "JohnnyDoe",
+            pass: "hamburguesadejamon",
+            verifyPass: "hamburguesadejamon"},
             checks: checks
         }
     },
@@ -45,7 +45,7 @@ var checks = {};
 let regexmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 checks.name = function(name) { return name.length > 1 && name.length < 20 && name.match(/^[a-z ,.'-]+$/i) };
 checks.tel = function(tel) { console.log("tel", tel); return tel.match(/^\d{9}$/) };
-checks.email = function(email) { console.log("email check", email.match(regexmail)); return email.match(regexmail); };
+checks.email = function(email) { return email.match(regexmail); };
 checks.username = function(username) { return username.length > 0 && username.length < 20 && username.match(/\w/gi) };
 checks.pass = function(pass) { return pass.length > 6 && pass.length < 20 };
 checks.verifyPass = function(_, that) { return that.myResult.pass === that.myResult.verifyPass };

@@ -1,6 +1,15 @@
 <template>
   <div id="app">
-    <Formulario :result="user" @completed="doThings" name="true" tel="true" email="true" username="true" pass="true" verifyPass="true"/>
+    <Formulario
+        :result="user"
+        @completed="doThings"
+        name="true"
+        tel="true"
+        email="true"
+        username="true"
+        pass="true"
+        verifyPass="true"
+        />
     <div>
       {{user}}
     </div>
@@ -17,12 +26,12 @@ export default {
   },
   data() {
     return {
-      user: {
-      }
+      user: {}
     }
   },
   methods: {
     doThings() {
+      this.$forceUpdate();  // de momento
       console.log("Me ha devuelto", this.user);
     }
   }

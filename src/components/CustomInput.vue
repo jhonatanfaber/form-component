@@ -1,5 +1,6 @@
 <template>
-  <div><slot></slot>
+  <div>
+      <span><slot></slot></span>
       <input
       :type="type"
       v-bind:value="value"
@@ -13,5 +14,11 @@ export default {
 }
 </script>
 <style scoped>
-
+div {
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+span {
+    font-weight: bold;
+}
 </style>
