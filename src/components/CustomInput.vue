@@ -1,22 +1,15 @@
 <template>
-  <div>Soy un custom input {{value}}
-      <input type="text" v-model="value" @change="update">
+  <div><slot></slot>
+      <input
+      :type="type"
+      v-bind:value="value"
+      v-on:input="$emit('input', $event.target.value)"/>
   </div>
 </template>
 <script>
 export default {
   name: "custom-input",
-  data() {
-      return {
-          value: ""
-      }
-  },
-  methods: {
-      update() {
-          console.log("Cambios", this.value);
-          this.$emit('changed123', this.value, "name");
-      }
-  }
+  props: ["value", "type"]
 }
 </script>
 <style scoped>

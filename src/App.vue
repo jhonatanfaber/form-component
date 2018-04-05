@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <Formulario :result="user" name="true" tel="true"/>
+    <Formulario :result="user" @completed="doThings" name="true" tel="true" email="true" username="true" pass="true" verifyPass="true"/>
+    <div>
+      {{user}}
+    </div>
   </div>
 </template>
 
@@ -14,7 +17,13 @@ export default {
   },
   data() {
     return {
-      user: {}
+      user: {
+      }
+    }
+  },
+  methods: {
+    doThings() {
+      console.log("Me ha devuelto", this.user);
     }
   }
 };
